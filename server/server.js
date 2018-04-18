@@ -4,6 +4,7 @@
 //request/response is 1:1 - one request gets back only one response.
 //Always remember to create a start command in the package.json
 //When downloading another project, generally we can run npm install and npm start and we're good to go
+//status 404 === Cannot get or file not found
 
 const express = require('express');
 const quotes = require('./quotes');
