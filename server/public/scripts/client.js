@@ -14,21 +14,27 @@ function onReady() {
         //where request is going
         url: '/all-quotes'
     })
-    .then(function(response) {
-        //this is the promise of a response
-        console.log(response);
-    });
+        .then(function (response) {
+            //this is the promise of a response
+            $('#allQuoteDisplay').append(`
+            <p>"${response[0].quote}"  - ${response[0].author}</p>
+            <p>"${response[1].quote}"  - ${response[1].author}</p>
+            <p>"${response[2].quote}"  - ${response[2].author}</p>
+            `);
+        });
 
     $('#quoteButton').on('click', getQuote);
 
 }
 
+
+//function to get random quote
 function getQuote() {
     $.ajax({
         type: 'GET',
         url: '/quote'
     })
-    .then(function(response) {
-        $('body').append(`<p>"${response.quote}"  - ${response.author}</p>`);
-    });
+        .then(function (response) {
+            $('#randomQuoteDisplay').append(`<p>"${response.quote}"  - ${response.author}</p>`);
+        });
 }
