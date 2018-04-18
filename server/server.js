@@ -11,10 +11,15 @@ const randomNumber = require('./random-number');
 const app = express();
 const PORT = 5000;
 
-app.get('/', (req, res) => {
-    res.send('Happy Wednesday');
-    console.log('yeah it worked.');
-});
+
+//Express code to serve the public folder (index.html, style.css, and client.js)
+app.use(express.static('server/public'));
+
+
+// app.get('/', (req, res) => {
+//     res.send('Happy Wednesday');
+//     console.log('yeah it worked.');
+// });
 
 app.get('/all-quotes', (req, res) => {
     res.send(quotes);
